@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table>
+        <tr valign="top"><td><img src="{{ pat.avatar(128) }}"></td></tr>
+        <tr valign="top"><td><h1>Patient Name: <a href="{{ url_for('pat',id=pat.id) }}">{{ apps.name }}</a></h1></td></tr>
+        <tr valign="top"><td><h1>Patient Age: {{ apps.age }}</h1></td></tr>
+        <tr valign="top"><td><h1>Patient Temperature: {{ apps.temperature }}</h1></td></tr>
+        <tr valign="top"><td><h1>Patient Pulse: {{ apps.pulse }}</h1></td></tr>
+        <tr valign="top"><td><h1>Patient Posture: {{ apps.lat_pos }} latitude {{ apps.lng_pos }} longitude</h1></td></tr>
+        <tr valign="top"><td><h1>Appointment Time: {{ apps.time }}</h1></td></tr>
+        <tr valign="top"><td><h1>Appointment Completed: {{ apps.completed }}</h1></td></tr>
+    </table>
+    <hr>
+{% endblock %}

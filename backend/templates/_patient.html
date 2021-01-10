@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+    <table>
+
+        <tr valign="top"><td><img src="{{ pat.avatar(128) }}"></td></tr>
+        <tr valign="top"><td><h1>Patient Name: <a href="{{ url_for('view_appointments',id=pat.id) }}">{{ pat.name }}</a></h1></td></tr>
+        <tr valign="top"><td><h1>Patient Email: {{ pat.email }}</h1></td></tr>
+        <tr valign="top"><td><h1>Patient Age: {{ pat.age }}</h1></td></tr>
+        <tr valign="top"><td><h1>Patient Temperature: {{ pat.temperature }}</h1></td></tr>
+        <tr valign="top"><td><h1>Patient Location: {{ pat.lat_pos }} latitude {{ pat.lng_pos }} longitude</h1></td></tr>
+        <tr valign="top"><td><h1>Patient Posture: {{ pat.posture }}</h1></td></tr>
+    </table>
+        <hr>
+        <h3>Previous Data</h3>
+        <table class="table table-hover">
+
+          <tbody>
+            <tr>
+              <td scope="row">Timestamp</td>
+                {% for time in all_timestamp_data %}
+                <th>{{ time }}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+              <td scope="row">Pulse</td>
+                {% for pulse in all_pulse_data %}
+                <th>{{ pulse }}</th>
+                {% endfor %}
+            </tr>
+          <tr>
+              <td scope="row">Temperature</td>
+                {% for temp in all_temp_data %}
+                <th>{{ temp }}</th>
+                {% endfor %}
+            </tr>
+          <tr>
+              <td scope="row">Latitude</td>
+                {% for pos in all_lat_pos_data %}
+                <th>{{ pos }}</th>
+                {% endfor %}
+            </tr>
+          <tr>
+              <td scope="row">Longitude</td>
+                {% for pos in all_lng_pos_data %}
+                <th>{{ pos }}</th>
+                {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+    <hr>
+    </div>
+{% endblock %}

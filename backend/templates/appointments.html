@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for ap in appointments %}
+        <table>
+            <tr valign="top"><td><h1>Patient Name: {{ ap.name }}</h1></td></tr>
+            <tr valign="top"><td><h1>Patient Age: {{ ap.age }}</h1></td></tr>
+            <tr valign="top"><td><h1>Patient Temperature: {{ ap.temperature }}</h1></td></tr>
+            <tr valign="top"><td><h1>Patient Pulse: {{ ap.pulse }}</h1></td></tr>
+            <tr valign="top"><td><h1>Patient Posture: {{ ap.lat_pos }} latitude {{ ap.lng_pos }} longitude</h1></td></tr>
+            <tr valign="top"><td><h1>Appointment Time: {{ ap.time }}</h1></td></tr>
+            <tr valign="top"><td><h1>Appointment Completed: {{ ap.completed }}</h1></td></tr>
+        </table>
+        <hr>
+    {% endfor %}
+{% endblock %}

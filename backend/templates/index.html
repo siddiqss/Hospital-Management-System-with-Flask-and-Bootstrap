@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container">
+        {% if current_user.is_authenticated %}
+        <h1>Hi {{ current_user.name }}!</h1> <br>
+        {% endif %}
+        <h2> Here's What you can do! </h2>
+        <br>
+        <button type="button" class="btn btn-primary"><a style="color:white" href="{{ url_for('register_patient') }} ">Add Patient</a></button>
+        {% if current_user.role == 'Doctor' or current_user.role == 'Dr.' %}
+        <button type="button" class="btn btn-primary"><a style="color:white" href="{{ url_for('all_appointments') }}">All Appointments</a></button>
+        {% endif %}
+        {% if not current_user.is_authenticated %}
+        <button type="button" class="btn btn-primary"><a style="color:white" href="{{ url_for('register') }}">Add Employee</a></button>
+        {% endif %}
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+        <div class="row">
+            <img src="{{ emp.avatar(128) }}">
+        </div>
+            <div class="row">
+             <h2>Employee Name: {{ emp.name }}</h2>
+            </div>
+            <div class="row">
+                <h2>Email: {{ emp.email }}</h2>
+            </div>
+            <div class="row">
+            <h2>Role: {{ emp.role }}</h2>
+            </div>
+            <div class="row">
+            <h2>Address: {{ emp.address }}</h2>
+            </div>
+
+</div>
+    <hr>
+
+{% endblock %}

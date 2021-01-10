@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for emp in emps %}
+        <table>
+        <tr valign="top"><td><img src="{{ emp.avatar(128) }}"></td></tr>
+        <tr valign="top"><td><h1>Employee Name: {{ emp.name }}</h1></td></tr>
+        <tr valign="top"><td><h1>Email: {{ emp.email }}</h1></td></tr>
+        <tr valign="top"><td><h1>Role: {{ emp.role }}</h1></td></tr>
+        <tr valign="top"><td><h1>Address: {{ emp.address }}</h1></td></tr>
+        </table>
+        <hr>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,8 @@
+.git
+.idea
+__pycache__
+backend/__pycache__
+logs
+migrations/__pycache__
+backend/sensor_data
+backend/sensor_data.zip

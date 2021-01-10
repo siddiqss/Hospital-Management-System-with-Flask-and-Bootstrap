@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for patient in pats %}
+
+        <table>
+        <tr valign="top"><td><img src="{{ patient.avatar(128) }}"></td></tr>
+            <tr valign="top"><td><h2>Patient Name: <a href="{{ url_for('pat', id=patient.id) }}">{{ patient.name }}</a></h2></td></tr>
+        <tr valign="top"><td><h2>Patient Email: {{ patient.email }}</h2></td></tr>
+        <tr valign="top"><td><h2>Patient Age: {{ patient.age }}</h2></td></tr>
+        <tr valign="top"><td><h2>Patient Temperature: {{ patient.temperature }}</h2></td></tr>
+        <tr valign="top"><td><h2>Patient Pulse: {{ patient.pulse }}</h2></td></tr>
+        <tr valign="top"><td><h2>Patient Posture: {{ patient.lat_pos }} latitude {{ patient.lng_pos }} longitude</h2></td></tr>
+
+        </table>
+        <hr>
+    {% endfor %}
+{% endblock %}

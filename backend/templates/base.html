@@ -1,0 +1,52 @@
+{% from 'bootstrap/nav.html' import render_nav_item %}
+{% from 'bootstrap/utils.html' import render_messages %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>
+            {% if title %}{{ title }}
+            {% else %}Hospital Management System{% endif %}
+        </title>
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+
+
+    </head>
+
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+            <ul class="navbar-nav mr-auto">
+                {{ render_nav_item('index', 'Home', use_li=True) }}
+                {% if current_user.is_anonymous %}
+                {{ render_nav_item('register', 'Register an Employee', use_li=True) }}
+                {{ render_nav_item('all_employees', 'All Employees', use_li=True) }}
+                {{ render_nav_item('login', 'Log in', use_li=True) }}
+                {% else %}
+                {{ render_nav_item('emp', 'Profile', use_li=True, id=current_user.id) }}
+                {% if current_user.role == 'Doctor' or current_user.role == 'Dr.' %}
+                {{ render_nav_item('all_patients', 'All Patients', use_li=True) }}
+                {{ render_nav_item('all_appointments', 'All Appointments', use_li=True) }}
+                {% endif %}
+                {% if current_user.role == 'Nurse' or current_user.role == 'N' %}
+                {{ render_nav_item('all_patients', 'All Patients', use_li=True) }}
+                {% endif %}
+                {{ render_nav_item('logout', 'Log out', use_li=True) }}
+                {% endif %}
+            </ul>
+    </nav>
+
+    <div class="jumbotron">
+      <h1 class="display-3">{{ title }}</h1>
+    </div>
+    <main class="container">
+        {{ render_messages(container=False) }}
+        {% block content %}{% endblock %}
+    </main>
+
+    </body>
+
+</html>
